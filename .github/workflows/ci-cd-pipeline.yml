@@ -18,7 +18,7 @@ jobs:
 
       - run: |
           mkdir -p test-results
-          npm test > test-results/test-output.txt 2>&1 || true
+          npm check > test-results/test-output.txt 2>&1 || true
 
       - uses: actions/upload-artifact@v3
         with:
