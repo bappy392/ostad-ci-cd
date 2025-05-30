@@ -8,7 +8,7 @@ on:
 
 jobs:
   test:
-    runs-on: mahmud-runner-tag
+    runs-on: mahmud1-tag
 
     steps:
      - name: --Setup Checkout--
