@@ -16,13 +16,13 @@ jobs:
      - name: --Setup node.js V-20--
        uses: actions/setup-node@v3
        with: 
-        node-version: 20
+        node-version: 20.12.2
      - name: --Install dependencies (npm install)---
        run: npm install
      - name: --Run test & store log---
        run: |
         mkdir -p applogfile
-        npm run check > applogfile/applog.txt || echol "Test Result"
+        npm run check > applogfile/applog.txt || echo "Test Result"
      - name: --Temporary Save in Applogfile--
        uses: actions/upload-artifact@v4
        with:
