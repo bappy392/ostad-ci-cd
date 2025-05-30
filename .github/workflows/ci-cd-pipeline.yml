@@ -19,7 +19,7 @@ jobs:
         node-version: 20
      - name: --Install dependencies (npm install)---
        run: npm install
-     - name: --Run test & store log--
+     - name: --Run test & store log---
        run: |
         mkdir -p applogfile
         npm run check > applogfile/applog.txt || echol "Test Result"
