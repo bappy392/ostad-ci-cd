@@ -17,7 +17,7 @@ jobs:
        uses: actions/setup-node@v3
        with: 
         node-version: 20
-     - name: --Install dependencies (npm install)--
+     - name: --Install dependencies (npm install)---
        run: npm install
      - name: --Run test & store log--
        run: |
