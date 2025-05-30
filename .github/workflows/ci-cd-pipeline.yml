@@ -29,4 +29,40 @@ jobs:
         name: applogfile
         path: applogfile/applog.txt
 
-     
+  deploy:
+    runs-on: ubuntu-latest
+    needs: test
+
+    steps: 
+      - name: Code checkout
+        uses: actions/checkout@v3
+
+      - name: Download test results
+        uses: actions/download-artifact@v4
+        with:
+          name: applogfile
+
+      - name: show test results
+        run: cat applog.txt
+
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install PM2
+        run: npm install pm2 -g
+
+
+      - name: Start Application
+        run: |
+            pm2 start src/server.js --name "node-app"
+            
+           
+      - name: Show success message
+        run: echo "✅ Build Success......"
+
