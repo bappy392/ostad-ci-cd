@@ -1,0 +1,32 @@
+name: CI/CD Ostad for APP
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: mahmud-runner-tag
+
+    steps:
+     - name: --Setup Checkout--
+       uses: actions/checkout@v3
+     - name: --Setup node.js V-20--
+       uses: actions/setup-node@v3
+       with: 
+        node-version: 20
+     - name: --Install dependencies (npm install)--
+       run: npm install
+     - name: --Run test & store log--
+       run: |
+        mkdir -p applogfile
+        npm run check > applogfile/applog.txt || echol "Test Result"
+     - name: --Temporary Save in Applogfile--
+       uses: actions/upload-artifact@v4
+       with:
+        name: applogfile
+        path: applogfile/applog.txt
+
+     
