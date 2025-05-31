@@ -8,7 +8,7 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: mahmudul-linux-tag
 
     steps:
      - name: --Setup Checkout--
@@ -30,7 +30,7 @@ jobs:
         path: applogfile/applog.txt
 
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: mahmudul-linux-tag
     needs: test
 
     steps: 
